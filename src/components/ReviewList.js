@@ -6,6 +6,7 @@ function formatDate(value) {
 }
 
 function ReviewListItem({ item, onDelete }) {
+  // 삭제 버튼을 누르면 onClick 이벤트로 onDelete 함수 실행, 인수는 item의 id
   const handleDeleteClick = () => onDelete(item.id);
 
   return (
@@ -27,7 +28,7 @@ function ReviewList({ items, onDelete }) {
     <ul>
       {items.map((item) => {
         return (
-          <li>
+          <li key={item.id}>
             <ReviewListItem item={item} onDelete={onDelete} />
           </li>
         );
