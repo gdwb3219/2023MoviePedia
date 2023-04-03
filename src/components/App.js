@@ -16,11 +16,12 @@ function App() {
     setItems(nextItems);
   };
 
-  const handleLoad = async (orderQuery) => {
-    const { reviews } = await getReviews(orderQuery);
+  const handleLoad = async (orderStateQuery) => {
+    const { reviews } = await getReviews(orderStateQuery);
     setItems(reviews);
   };
 
+  // 렌더링이 끝나고 콜백함수 실행
   useEffect(() => {
     handleLoad(order);
   }, [order]);
