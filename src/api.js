@@ -5,7 +5,7 @@ export async function getReviews({
   offset = 0,
   limit = 6,
 }) {
-  const query = `order=${order}`;
+  const query = `order=${order}&offset=${offset}&limit=${limit}`;
   const response = await fetch(
     `https://learn.codeit.kr/api/film-reviews?${query}`
   );
