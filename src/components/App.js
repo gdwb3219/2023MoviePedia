@@ -44,7 +44,7 @@ function App() {
     <div>
       <div>
         <button onClick={handleNewestClick}>최신순</button>
-        <button onClick={handleRatingClick}>별점순</button>
+        <button onClick={handleRatingClick}>베스트순</button>
       </div>
       <ReviewList items={sortedItems} onDelete={handleDelete} />
       <button disabled={!hasNext} onClick={handleLoadMore}>
