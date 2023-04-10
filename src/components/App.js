@@ -9,7 +9,6 @@ function App() {
   const [items, setItems] = useState([]);
   const [offset, setOffset] = useState(0);
   const [hasNext, setHasNext] = useState(false);
-  const [num, setNum] = useState(0);
 
   const sortedItems = items.sort((a, b) => b[order] - a[order]);
 
@@ -26,7 +25,7 @@ function App() {
     if (options.offset === 0) {
       setItems(reviews);
     } else {
-      setItems([...items, ...reviews]);
+      setItems((prevItems) => [...prevItems, ...reviews]);
     }
     setOffset(options.offset + reviews.length);
     setHasNext(paging.hasNext);
@@ -34,10 +33,6 @@ function App() {
 
   const handleLoadMore = () => {
     handleLoad({ order, offset, limit: LIMIT });
-  };
-
-  const handleClick = () => {
-    setNum(!num);
   };
 
   // 렌더링이 끝나고 콜백함수 실행
@@ -50,9 +45,7 @@ function App() {
       <div>
         <button onClick={handleNewestClick}>최신순</button>
         <button onClick={handleRatingClick}>베스트순</button>
-        <button onClick={handleClick}>더하기</button>
       </div>
-      {num && <p>num이 0보다 크다!</p>}
       <ReviewList items={sortedItems} onDelete={handleDelete} />
       {hasNext && <button onClick={handleLoadMore}>더 보기</button>}
     </div>
