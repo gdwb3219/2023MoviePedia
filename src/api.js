@@ -9,6 +9,9 @@ export async function getReviews({
   const response = await fetch(
     `https://learn.codeit.kr/api/film-reviews?${query}`
   );
+  if (!response.ok) {
+    throw new Error('데이터를 불러오지 못했습니당.');
+  }
   const body = await response.json();
   return body;
 }
