@@ -43,7 +43,7 @@ function ReviewForm() {
         value={values.content}
         onChange={handleInputChange}
       />
-      <button type="submit">확인</button>
+      <button type="submit">제출</button>
     </form>
   );
 }
