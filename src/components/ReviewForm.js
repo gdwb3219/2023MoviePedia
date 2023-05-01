@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './ReviewForm.css';
-import FileInput from './FileInput';
+import FilesInput from './FilesInput';
 
 function ReviewForm() {
   const [values, setValues] = useState({
@@ -26,7 +26,7 @@ function ReviewForm() {
 
   return (
     <form className="ReviewForm" onSubmit={handleSubmit}>
-      <FileInput
+      <FilesInput
         name="imgFile"
         value={values.imgFile}
         onChange={handleChange}
